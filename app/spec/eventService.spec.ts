@@ -15,7 +15,7 @@ class EventServiceTester extends EventService {
     }
 }
 
-describe('event.', function() {
+describe('Event Service.', function() {
     'use strict';
 
     beforeEach(function() {
