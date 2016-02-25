@@ -12,7 +12,7 @@ WARNING: es6 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 Methods
 =======
 
-**Constructor**
+**constructor**
 
 Creates new EventService instance.
 
