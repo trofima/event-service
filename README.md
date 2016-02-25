@@ -1,7 +1,11 @@
-Events
+Event Service
 ===
 
 Events service which provide event handling in an Object scope
+
+It's written in typescript, compiled to es5 and minified.
+WARNING: es6 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+ used. See compatibilyty table or use shim
 
 ---
 
@@ -10,41 +14,37 @@ Methods
 
 **Constructor**
 
-Creates new Events instance.
+Creates new EventService instance.
 
-    var events = new Events();
-
----
-
-**.on(type, callback[, context])**
-
-`type` (string) - event name to listen to  
-`callback` (Function) - callback to be called  
-`context` (Object) - context for calling the callback  
-
-Binds callback to the event. You can provide several `type`s divided by spaces or commas.
-
-    events.on('hello', function(e){
-        console.log('Hello ', e.data.to);
-    });
-
-    events.on('hello, hi, goodMorning', this._sayHello, this);
+    var eventService = new EventService();
 
 ---
 
-**.once(type, callback[, context])**
+**.on(type, action[, context])**
 
 `type` (string) - event name to listen to  
-`callback` (Function) - callback to be called  
-`context` (Object) - context for calling the callback  
+`action` (Function) - action to be called  
+`context` (Object) - context for calling the action  
 
-Binds callback to the event only *once*. You can provide several `type`s divided by spaces or commas.
+Binds action to the event. You can provide several `type`s divided by spaces or commas.
 
-    events.once('hello', function(e){
-        console.log('Hello ', e.data.to);
-    });
+    eventService.on('hello', (e) => console.log('Hello ', e.data.to));
 
-    events.once('hello, hi, goodMorning', this._sayHello, this);
+    eventService.on('hello, hi, goodMorning', (e) => console.log('Hi!!!), this);
+
+---
+
+**.once(type, action[, context])**
+
+`type` (string) - event name to listen to  
+`action` (Function) - action to be called  
+`context` (Object) - context for calling the action  
+
+Binds action to the event only *once*. You can provide several `type`s divided by spaces or commas.
+
+    eventService.once('hello', (e) => console.log('Hello ', e.data.to));
+
+    eventService.once('hello, hi, goodMorning', (e) => console.log('Hi!!!), this);
 
 ---
 
@@ -54,22 +54,22 @@ Binds callback to the event only *once*. You can provide several `type`s divided
 `data` (Object) - event data  
 `rawEvent` (*) - RAW event  
 
-Triggers an event in *this* window. You can provide several `type`s divided by spaces or commas.
+Triggers an event on *this* object. You can provide several `type`s divided by spaces or commas.
 
-    events.trigger('saidHello', { to: 'John' });
-    events.trigger('hello, hi, goodMorning', { to: 'John' });
+    eventService.trigger('saidHello', { to: 'John' }, nativeClickEvent);
+    eventService.trigger('hello, hi, goodMorning', { to: 'John' });
 
 ---
 
-**.off([type[, callback]])**
+**.off([type[, action]])**
 
 `type` (string) - event name to stop listen to
-`callback` (Function) - callback to be removed from listening stack
+`action` (Function) - action to be removed from listening stack
 
- Removes event listeners. You can provide several types divided by spaces or commas. If `type` isn't provided *all* callbacks will be removed.
+ Removes actions. You can provide several types divided by spaces or commas. If action isn't provided all actions will be removed for the event type. If `type` isn't provided *all* actions will be removed for the entire object.
 
-    events.off('hello');
-    events.off('hello, hi', this._sayHello);
-    events.off();
+    eventService.off('hello, hi', this.sayHello); // removes "this.sayHello" action for the "hello" event
+    eventService.off('hello'); // removes all actions for the "hello" event
+    eventService.off(); // removes all actions for the eventService instance
 
 ---
