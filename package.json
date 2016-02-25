@@ -3,11 +3,21 @@
   "version": "1.0.0",
   "description": "Service for the object's internal events handling",
   "main": "app/target/eventService.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trofima/event-service.git"
+  },
   "scripts": {
     "build": "gulp",
-    "test": "gulp test"
+    "test": "gulp default test"
   },
-  "author": "Serhii Trofimets (aka Fima)",
+  "keywords": [
+    "event",
+    "action",
+    "service"
+  ],
+  "homepage": "https://github.com/trofima/event-service#event-service",
+  "author": "Serhii Trofimets (aka Fima) azarija@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -17,5 +27,6 @@
     "gulp-uglify": "^1.5.3",
     "install": "^0.5.0",
     "npm": "^3.7.3"
-  }
+  },
+  "dependencies": {}
 }

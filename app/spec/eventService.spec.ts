@@ -1,5 +1,6 @@
 'use strict';
 import {EventService, ServiceEvent} from './../src/eventService';
+
 class EventServiceTester extends EventService {
     getActionsByType(type) {
         return this.actions.get(type);
