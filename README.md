@@ -3,7 +3,7 @@ Event Service
 
 Events service which provide event handling in an Object scope
 
-It's written in typescript, compiled to es5 and minified.
+It's written in typescript, compiled to es5 and [minified](app/target/eventService.min.js).
 WARNING: es6 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
  used. See compatibilyty table or use shim
 
