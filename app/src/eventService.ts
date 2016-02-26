@@ -1,6 +1,6 @@
 'use strict';
 
-interface Action {
+export interface Action {
     (event:ServiceEvent): any;
 }
 
