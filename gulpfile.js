@@ -7,7 +7,7 @@ const uglify = require('gulp-uglify');
 const jasmine = require('gulp-jasmine');
 
 function throwPluginError(err){
-    console.error('BUILD ERROR:\nplugin %s has thrown an error: %s', err.plugin, err.message);
+    console.error('ERROR:\nplugin %s has thrown an error: %s', err.plugin, err.message);
     process.exit(1);
 }
 
@@ -35,6 +35,6 @@ function test(){
 gulp
     .task('compile-ts', compileTs)
     .task('build-js', ['compile-ts'], minimifyJs)
-    .task('test', test)
+    .task('test', ['compile-ts'], test)
 
     .task('default', ['build-js']);
