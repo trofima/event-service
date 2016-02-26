@@ -2,7 +2,7 @@
   "name": "event-service",
   "version": "1.0.0",
   "description": "Service for the object's internal events handling",
-  "main": "app/target/eventService.min.js",
+  "main": "./app/target/eventService.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trofima/event-service.git"
