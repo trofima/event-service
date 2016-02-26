@@ -5,7 +5,7 @@
     "sourceMap": true
   },
   "exclude": [
-    "node_modules",
+    "node_modules/typescript",
     "typings/browser.d.ts",
     "typings/browser"
   ]
