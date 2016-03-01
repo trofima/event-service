@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Service for the object's internal events handling",
   "main": "./dist/eventService.min.js",
+  "typings": "./dist/eventService.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trofima/event-service.git"
