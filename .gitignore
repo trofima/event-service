@@ -33,7 +33,4 @@ node_modules
 .idea
 
 # Project compiled js
-app/spec/**/*.js
-app/spec/**/*.map
-app/src/**/*.js
-app/src/**/*.map
+compiled

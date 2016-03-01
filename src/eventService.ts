@@ -45,7 +45,7 @@ export class EventService {
         if (shouldCallOnce)
             return this.createOneTimeAction(boundAction, typeString);
 
-        return boundAction
+        return boundAction;
     }
 
     private createOneTimeAction(action:Action, typeString:string):Action {
