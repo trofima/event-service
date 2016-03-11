@@ -6,6 +6,6 @@
     "outDir": "./compiled"
   },
   "exclude": [
-    "node_modules/typescript/"
+    "node_modules"
   ]
 }
