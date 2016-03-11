@@ -4,7 +4,7 @@ Event Service
 Events service which provide event handling in an Object scope
 
 It's written in typescript, compiled to es5 and [minified](/dist/eventService.min.js).
-Typings can be found in /dist/eventService.d.ts
+Typings can be found [here](/dist/eventService.d.ts).
 WARNING: es6 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) used. See compatibility table or use shim.
 Note the eventService.d.ts depends on ambient typings for ES 6 collections. 
 That's mean if you want your typescript compiler not to fail, you have to install [es6-collections.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/es6-collections/es6-collections.d.ts) to your project.
