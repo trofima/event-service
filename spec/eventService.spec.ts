@@ -15,21 +15,21 @@ class EventServiceTester extends EventService {
     }
 }
 
-describe('Event Service.', function() {
-    beforeEach(function() {
+describe('Event Service.', function () {
+    beforeEach(function () {
         this.eventServiceTester = new EventServiceTester();
     });
 
-    describe('constructor:', function() {
-        it('should set "actions" to an empty Map', function() {
+    describe('constructor:', function () {
+        it('should set "actions" to an empty Map', function () {
             const eventServiceTester = new EventServiceTester();
 
             expect(eventServiceTester.getActions() instanceof Map).toBe(true);
         });
     });
 
-    describe('on:', function() {
-        it('should add action to event type', function() {
+    describe('on:', function () {
+        it('should add action to event type', function () {
             const action = jasmine.createSpy('action');
 
             this.eventServiceTester.on('someEvent', action);
@@ -39,7 +39,7 @@ describe('Event Service.', function() {
             expect(this.eventServiceTester.getActionByIndex('otherEvent', 0)).toBe(action);
         });
 
-        it('should add actions to the list of the same event type', function() {
+        it('should add actions to the list of the same event type', function () {
             const someaction = jasmine.createSpy('someaction');
             const otheraction = jasmine.createSpy('otheraction');
 
@@ -50,7 +50,7 @@ describe('Event Service.', function() {
             expect(this.eventServiceTester.getActionByIndex('event', 1)).toBe(otheraction);
         });
 
-        it('should add the same action to a multiple events', function() {
+        it('should add the same action to a multiple events', function () {
             const action = jasmine.createSpy('action');
 
             this.eventServiceTester.on('someEvent, otherEvent', action);
@@ -59,7 +59,7 @@ describe('Event Service.', function() {
             expect(this.eventServiceTester.getActionByIndex('otherEvent', 0)).toBe(action);
         });
 
-        it('should set the context of an action', function() {
+        it('should set the context of an action', function () {
             const action = jasmine.createSpy('action');
             const boundaction = jasmine.createSpy('boundaction');
             const context = {};
@@ -71,8 +71,9 @@ describe('Event Service.', function() {
             expect(this.eventServiceTester.getActionByIndex('event', 0)).toBe(boundaction);
         });
 
-        it('should clear event action after invocation if "shouldCallOnce" flag is set', function() {
-            const action = function(){};
+        it('should clear event action after invocation if "shouldCallOnce" flag is set', function () {
+            const action = function () {
+            };
 
             this.eventServiceTester.on('event', action, null, true);
             this.eventServiceTester.trigger('event');
@@ -81,9 +82,10 @@ describe('Event Service.', function() {
         });
     });
 
-    describe('once', function() {
-        it('should clear event action after invocation', function() {
-            const action = function(){};
+    describe('once', function () {
+        it('should clear event action after invocation', function () {
+            const action = function () {
+            };
 
             this.eventServiceTester.on('event', action, null, true);
             this.eventServiceTester.trigger('event');
@@ -92,8 +94,8 @@ describe('Event Service.', function() {
         });
     });
 
-    describe('trigger:', function() {
-        it('should fire the action for event', function() {
+    describe('trigger:', function () {
+        it('should fire the action for event', function () {
             const action = jasmine.createSpy('action');
             const eventData = {};
             const rawEvent = {};
@@ -105,7 +107,7 @@ describe('Event Service.', function() {
             expect(action).toHaveBeenCalledWith(new ServiceEvent('event', eventData, rawEvent));
         });
 
-        it('should fire all actions for event', function() {
+        it('should fire all actions for event', function () {
             const actionOne = jasmine.createSpy('actionOne');
             const actionTwo = jasmine.createSpy('actionTwo');
             const eventData = {};
@@ -119,11 +121,11 @@ describe('Event Service.', function() {
             expect(actionTwo).toHaveBeenCalledWith(new ServiceEvent('event', eventData));
         });
 
-        it('should not fail if event does not exist', function() {
+        it('should not fail if event does not exist', function () {
             expect(this.eventServiceTester.trigger.bind(this.eventServiceTester, 'event')).not.toThrow();
         });
 
-        it('should be able to fire actions for mutiple event types', function() {
+        it('should be able to fire actions for mutiple event types', function () {
             const actionOne = jasmine.createSpy('actionOne');
             const actionTwo = jasmine.createSpy('actionTwo');
 
@@ -136,20 +138,21 @@ describe('Event Service.', function() {
             expect(actionTwo).toHaveBeenCalled();
         });
 
-        it('should fire "all" event action in any case', function() {
+        it('should fire "all" event action in any case', function () {
             const action = jasmine.createSpy('action');
 
             this.eventServiceTester.on('all', action);
-            this.eventServiceTester.on('event', function() {});
+            this.eventServiceTester.on('event', function () {
+            });
 
             this.eventServiceTester.trigger('event');
 
             expect(action).toHaveBeenCalledWith(new ServiceEvent('all'));
         });
     });
-    
-    describe('off', function() {
-        it('should unbind action from event', function() {
+
+    describe('off', function () {
+        it('should unbind action from event', function () {
             const action = jasmine.createSpy('action');
 
             this.eventServiceTester.on('event', action);
@@ -158,8 +161,8 @@ describe('Event Service.', function() {
 
             expect(this.eventServiceTester.getActionByIndex('event', 0)).toBe(undefined);
         });
-        
-        it('should not fail if provided event does not exist', function() {
+
+        it('should not fail if provided event does not exist', function () {
             const action = jasmine.createSpy('action');
 
             this.eventServiceTester.on('event', action);
@@ -167,7 +170,7 @@ describe('Event Service.', function() {
             expect(this.eventServiceTester.off.bind(this.eventServiceTester, 'otherEvent', action)).not.toThrow();
         });
 
-        it('should unbind action from multiple events', function() {
+        it('should unbind action from multiple events', function () {
             const action = jasmine.createSpy('action');
 
             this.eventServiceTester.on('event, anotherEvent', action);
@@ -178,9 +181,11 @@ describe('Event Service.', function() {
             expect(this.eventServiceTester.getActionByIndex('anotherEvent', 0)).toBe(undefined);
         });
 
-        it('should unbind all actions from event', function() {
-            this.eventServiceTester.on('event', function(){});
-            this.eventServiceTester.on('event', function(){});
+        it('should unbind all actions from event', function () {
+            this.eventServiceTester.on('event', function () {
+            });
+            this.eventServiceTester.on('event', function () {
+            });
 
             this.eventServiceTester.off('event');
 

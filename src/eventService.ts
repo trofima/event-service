@@ -82,8 +82,8 @@ export class EventService {
             this.warnUregistered(type);
     }
 
-    private unbind(type:string, action?:Action){
-        if (action){
+    private unbind(type:string, action?:Action) {
+        if (action) {
             let actions = this.actions.get(type);
 
             this.actions.set(type, actions.filter((candidateAction) => candidateAction !== action));
