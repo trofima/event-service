@@ -41,7 +41,7 @@ Binds action to the event. You can provide several `type`s divided by spaces or 
 
 ```javascript
     eventService.on('hello', (e) => console.log('Hello ', e.data.to));
-    eventService.on('hello, hi, goodMorning', (e) => console.log('Hi!), this);
+    eventService.on('hello, hi, goodMorning', (e) => console.log('Hi!'), this);
 ```
 
 ---
@@ -56,7 +56,7 @@ Binds action to the event only *once*. You can provide several `type`s divided b
 
 ```javascript
     eventService.once('hello', (e) => console.log('Hello ', e.data.to));
-    eventService.once('hello, hi, goodMorning', (e) => console.log('Hi!), this);
+    eventService.once('hello, hi, goodMorning', (e) => console.log('Hi!'), this);
 ```
 
 ---
