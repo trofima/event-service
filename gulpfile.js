@@ -28,6 +28,13 @@ function minJs() {
         .pipe(gulp.dest('./dist/'));
 }
 
+function declareTs() {
+    return gulp.src('./src/**/*.ts')
+        .pipe(ts({
+            declaration: true
+        })).dts.pipe(gulp.dest('./dist/'));
+}
+
 function test(){
     return gulp.src('./compiled/spec/**/*.spec.js')
         .pipe(jasmine().on('error', throwPluginError))
@@ -36,6 +43,8 @@ function test(){
 gulp
     .task('compile-ts', compileTs)
     .task('build-js', ['compile-ts'], minJs)
+    .task('declare-ts', declareTs)
+
     .task('test', ['compile-ts'], test)
 
-    .task('default', ['build-js']);
+    .task('default', ['build-js', 'declare-ts']);
