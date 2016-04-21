@@ -39,9 +39,10 @@ Creates new EventService instance.
 
 Binds action to the event. You can provide several `type`s divided by spaces or commas.
 
+```javascript
     eventService.on('hello', (e) => console.log('Hello ', e.data.to));
-
     eventService.on('hello, hi, goodMorning', (e) => console.log('Hi!!!), this);
+```
 
 ---
 
@@ -53,9 +54,10 @@ Binds action to the event. You can provide several `type`s divided by spaces or 
 
 Binds action to the event only *once*. You can provide several `type`s divided by spaces or commas.
 
+```javascript
     eventService.once('hello', (e) => console.log('Hello ', e.data.to));
-
     eventService.once('hello, hi, goodMorning', (e) => console.log('Hi!!!), this);
+```
 
 ---
 
@@ -67,8 +69,10 @@ Binds action to the event only *once*. You can provide several `type`s divided b
 
 Triggers an event on *this* object. You can provide several `type`s divided by spaces or commas.
 
+```javascript
     eventService.trigger('saidHello', { to: 'John' }, nativeClickEvent);
     eventService.trigger('hello, hi, goodMorning', { to: 'John' });
+```    
 
 ---
 
@@ -79,8 +83,10 @@ Triggers an event on *this* object. You can provide several `type`s divided by s
 
  Removes actions. You can provide several types divided by spaces or commas. If action isn't provided all actions will be removed for the event type. If `type` isn't provided *all* actions will be removed for the entire object.
 
+```javascript
     eventService.off('hello, hi', this.sayHello); // removes "this.sayHello" action for the "hello" event
     eventService.off('hello'); // removes all actions for the "hello" event
     eventService.off(); // removes all actions for the eventService instance
+```    
 
 ---
