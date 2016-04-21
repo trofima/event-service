@@ -78,7 +78,7 @@ Triggers an event on *this* object. You can provide several `type`s divided by s
 
 **.off([type[, action]])**
 
-- `type` (string) - event name to stop listen to
+- `type` (string) - event name to stop listen to 
 - `action` (Function) - action to be removed from listening stack
 
  Removes actions. You can provide several types divided by spaces or commas. If action isn't provided all actions will be removed for the event type. If `type` isn't provided *all* actions will be removed for the entire object.
