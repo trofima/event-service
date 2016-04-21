@@ -33,9 +33,9 @@ Creates new EventService instance.
 
 **.on(type, action[, context])**
 
-`type` (string) - event name to listen to
-`action` (Function) - action to be called
-`context` (Object) - context for calling the action  
+`type` (string) - event name to listen to 
+`action` (Function) - action to be called 
+`context` (Object) - context for calling the action 
 
 Binds action to the event. You can provide several `type`s divided by spaces or commas.
 
