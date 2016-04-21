@@ -33,9 +33,9 @@ Creates new EventService instance.
 
 **.on(type, action[, context])**
 
-`type` (string) - event name to listen to 
-`action` (Function) - action to be called 
-`context` (Object) - context for calling the action 
+- `type` (string) - event name to listen to 
+- `action` (Function) - action to be called 
+- `context` (Object) - context for calling the action 
 
 Binds action to the event. You can provide several `type`s divided by spaces or commas.
 
@@ -48,9 +48,9 @@ Binds action to the event. You can provide several `type`s divided by spaces or 
 
 **.once(type, action[, context])**
 
-`type` (string) - event name to listen to
-`action` (Function) - action to be called
-`context` (Object) - context for calling the action  
+- `type` (string) - event name to listen to
+- `action` (Function) - action to be called
+- `context` (Object) - context for calling the action   
 
 Binds action to the event only *once*. You can provide several `type`s divided by spaces or commas.
 
@@ -63,9 +63,9 @@ Binds action to the event only *once*. You can provide several `type`s divided b
 
 **.trigger(type[, data[, rawEvent]])**
 
-`type` (string) - event name to be dispatched
-`data` (Object) - event data
-`rawEvent` (*) - RAW event  
+- `type` (string) - event name to be dispatched
+- `data` (Object) - event data
+- `rawEvent` (*) - RAW event  
 
 Triggers an event on *this* object. You can provide several `type`s divided by spaces or commas.
 
@@ -78,8 +78,8 @@ Triggers an event on *this* object. You can provide several `type`s divided by s
 
 **.off([type[, action]])**
 
-`type` (string) - event name to stop listen to
-`action` (Function) - action to be removed from listening stack
+- `type` (string) - event name to stop listen to
+- `action` (Function) - action to be removed from listening stack
 
  Removes actions. You can provide several types divided by spaces or commas. If action isn't provided all actions will be removed for the event type. If `type` isn't provided *all* actions will be removed for the entire object.
 
