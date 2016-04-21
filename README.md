@@ -25,9 +25,9 @@ Methods
 
 Creates new EventService instance.
 
-    ```javascript
+```javascript
     var eventService = new EventService();
-    ```
+```
 
 ---
 
