@@ -13,6 +13,7 @@
     "test": "gulp default test"
   },
   "keywords": [
+    "event-service",
     "event",
     "action",
     "service"
