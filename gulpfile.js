@@ -23,8 +23,10 @@ function compileTs(){
 
 function minJs() {
     return gulp.src('./compiled/src/**/*.js')
-        .pipe(concat('eventService.min.js').on('error', throwPluginError))
-        .pipe(uglify().on('error', throwPluginError))
+        .pipe(concat('eventService.min.js')
+            .on('error', throwPluginError))
+        .pipe(uglify()
+            .on('error', throwPluginError))
         .pipe(gulp.dest('./dist/'));
 }
 

@@ -6,6 +6,8 @@
     "outDir": "./compiled"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "compiled",
+    "dist"
   ]
 }
