@@ -39,7 +39,8 @@ function declareTs() {
 
 function test(){
     return gulp.src('./compiled/spec/**/*.spec.js')
-        .pipe(jasmine().on('error', throwPluginError))
+        .pipe(jasmine()
+            .on('error', throwPluginError));
 }
 
 gulp
